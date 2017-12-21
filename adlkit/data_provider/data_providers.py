@@ -18,7 +18,11 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 or implied.  See the License for the specific language governing permissions and limitations under the License.
 """
 
-import Queue
+try:
+    import Queue
+except:
+    import queue as Queue
+    
 import ctypes
 import logging as lg
 import multiprocessing
