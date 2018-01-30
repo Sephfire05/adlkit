@@ -77,6 +77,9 @@ class FileDataIODriver(DataIODriver):
             self.close_all()
 
     def get(self, descriptor, suppress=False, *args, **kwargs):
+        assert isinstance(descriptor, (str, unicode))
+        if isinstance(descriptor, unicode):
+            descriptor = descriptor.encode()
         if self.cache_handles:
             if descriptor in self.file_handle_holder:
                 return self.file_handle_holder[descriptor]

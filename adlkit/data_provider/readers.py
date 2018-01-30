@@ -28,7 +28,7 @@ from future.utils import raise_with_traceback
 
 from adlkit.data_provider.comm_drivers import BaseCommDriver
 from .config import READER_OFFSET
-from .io_drivers import DataIODriver, IOController
+from .io_drivers import IOController
 from .workers import Worker
 
 # lg.basicConfig(level=lg.INFO)
@@ -131,8 +131,11 @@ class BaseReader(Worker):
                             self.debug("successfully wrote data to comm_driver['out']")
                             break
 
-                    self.debug("batch_read_time={0} out_queue_put_wait_time={1}".format(time.time() - start_time,
-                                                                                        time.time() - wait_time))
+                    self.debug("batch_read_time={} out_queue_put_wait_time={} batch_id={}".format(time.time() -
+                                                                                                  start_time,
+                                                                                                  time.time() -
+                                                                                                  wait_time,
+                                                                                                  self.batch_count))
 
                     self.batch_count += 1
                     in_queue_time = time.time()
