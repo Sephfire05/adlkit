@@ -73,6 +73,7 @@ class Label(CatalogObject):
     is_origin = None
     # TODO - wghilliard - LabelMeta
     # username = None
+    _payload = None
 
 
 class AbstractDataCatalog(object):
