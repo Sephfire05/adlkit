@@ -25,17 +25,18 @@ from adlkit import __version__
 setuptools.setup(
         name="adlkit",
         version=__version__,
-        author="Amir Farbin, William Hilliard, Ryan Reece",
+        author="Amir Farbin, William Hilliard",
         author_email="wghilliard@anomalousdl.com",
         url="https://github.com/anomalousdl/adlkit",
         install_requires=[
+            # TODO - wghilliard - is this version of keras still needed?
             "keras==2.0.8",
             "numpy",
             "h5py",
             "theano",
             "billiard",
             "np_utils",
-            "tensorflow"
+            "tensorflow==1.4.1"
         ],
         packages=setuptools.find_packages()
 )
