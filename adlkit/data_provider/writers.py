@@ -20,8 +20,10 @@ or implied.  See the License for the specific language governing permissions and
 
 import collections
 import logging as lg
+
 import os
 import time
+from future.utils import raise_with_traceback
 
 from adlkit.data_provider.comm_drivers import BaseCommDriver
 from adlkit.data_provider.config import WRITER_OFFSET
@@ -29,6 +31,8 @@ from adlkit.data_provider.io_drivers import IOController
 from adlkit.data_provider.workers import Worker
 
 writer_lg = lg.getLogger('data_provider.workers.writers')
+
+
 # writer_lg.setLevel(lg.DEBUG)
 
 
@@ -116,6 +120,8 @@ class BaseWriter(Worker):
                     except StopIteration:
                         self.debug(' StopIteration received...')
                         break
+                    except Exception as e:
+                        raise_with_traceback(e)
 
                     self.debug("next_datum_time_wait_time={0}".format(time.time() - next_datum_time))
 
