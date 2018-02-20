@@ -121,6 +121,7 @@ class BaseWriter(Worker):
                         self.debug(' StopIteration received...')
                         break
                     except Exception as e:
+                        self.error(e)
                         raise_with_traceback(e)
 
                     self.debug("next_datum_time_wait_time={0}".format(time.time() - next_datum_time))
