@@ -61,6 +61,14 @@ class DataPointer(CatalogObject):
 
         return source_type, source_name, data_set_list, index
 
+    def __repr__(self):
+        return 'DataPointer(source_name={}, source_type={}, index={}, data_set_list={}, timestamp={}'.format(
+                self.source_name,
+                self.source_type,
+                self.index,
+                self.data_set_list,
+                self.timestamp)
+
 
 class LabelInstance(CatalogObject):
     data_point_uid = None
@@ -74,6 +82,12 @@ class Label(CatalogObject):
     # TODO - wghilliard - LabelMeta
     # username = None
     _payload = None
+
+    def __repr__(self):
+        return 'Label(name={}, comment={}, is_origin={}, timestamp={})'.format(self.name,
+                                                                               self.comment,
+                                                                               self.is_origin,
+                                                                               self.timestamp)
 
 
 class AbstractDataCatalog(object):
