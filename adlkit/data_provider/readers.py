@@ -132,10 +132,8 @@ class BaseReader(Worker):
                             break
 
                     self.debug("batch_read_time={} out_queue_put_wait_time={} batch_count={} batch_id={}".format(
-                            time.time() -
-                            start_time,
-                            time.time() -
-                            wait_time,
+                            time.time() - start_time,
+                            time.time() - wait_time,
                             self.batch_count,
                             data_pointer[2]))
 
