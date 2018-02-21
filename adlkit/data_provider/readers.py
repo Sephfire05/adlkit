@@ -20,10 +20,10 @@ or implied.  See the License for the specific language governing permissions and
 
 import collections
 import logging as lg
-import time
 
 import keras
 import numpy as np
+import time
 from future.utils import raise_with_traceback
 
 from adlkit.data_provider.comm_drivers import BaseCommDriver
@@ -131,11 +131,13 @@ class BaseReader(Worker):
                             self.debug("successfully wrote data to comm_driver['out']")
                             break
 
-                    self.debug("batch_read_time={} out_queue_put_wait_time={} batch_id={}".format(time.time() -
-                                                                                                  start_time,
-                                                                                                  time.time() -
-                                                                                                  wait_time,
-                                                                                                  self.batch_count))
+                    self.debug("batch_read_time={} out_queue_put_wait_time={} batch_count={} batch_id={}".format(
+                            time.time() -
+                            start_time,
+                            time.time() -
+                            wait_time,
+                            self.batch_count,
+                            data_pointer[2]))
 
                     self.batch_count += 1
                     in_queue_time = time.time()

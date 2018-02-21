@@ -21,12 +21,12 @@ or implied.  See the License for the specific language governing permissions and
 import ctypes
 import logging as lg
 import multiprocessing as mp
-import os
 import signal
-import time
 
 import billiard
 import numpy as np
+import os
+import time
 from future.utils import raise_with_traceback
 
 worker_log = lg.getLogger('data_provider.workers.worker')
@@ -51,6 +51,7 @@ def error_handler(self):
                 if os.getppid() != billiard.current_process().pid:
                     os.kill(os.getppid(), signal.SIGUSR1)
 
+                worker_log.error(e)
                 raise_with_traceback(e)
 
             return output
