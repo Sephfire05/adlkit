@@ -20,9 +20,9 @@ or implied.  See the License for the specific language governing permissions and
 
 import collections
 import logging as lg
+import time
 
 import os
-import time
 from future.utils import raise_with_traceback
 
 from adlkit.data_provider.comm_drivers import BaseCommDriver
@@ -104,6 +104,8 @@ class BaseWriter(Worker):
 
         # TODO - wghilliard - MORE BETTER PLS
         lock_file_name = self.data_dst + '.lock'
+        if os.path.exists(lock_file_name):
+            self.error('lock_file={} exists already! unpredictable behaviour may occur!')
         with open(lock_file_name, 'a'):
             self.debug("writing lock_file={}".format(lock_file_name))
             pass
@@ -121,6 +123,7 @@ class BaseWriter(Worker):
                         self.debug(' StopIteration received...')
                         break
                     except Exception as e:
+                        io_driver.close(self.data_dst, self.current_handle, force=True)
                         self.error(e)
                         raise_with_traceback(e)
 

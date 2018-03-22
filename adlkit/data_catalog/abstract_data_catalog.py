@@ -38,6 +38,11 @@ class CatalogObject(object):
         for key, value in init.items():
             setattr(self, key, value)
 
+    def to_dict(self):
+        payload = self.__dict__
+        payload['timestamp'] = str(self.timestamp)
+        return payload
+
 
 # TODO - wghilliard - rename to DataPointer
 class DataPointer(CatalogObject):
