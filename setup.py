@@ -36,8 +36,7 @@ setuptools.setup(
             "theano",
             "billiard",
             "np_utils",
-            # "tensorflow==1.4.1"
-            "tensorflow-gpu==1.4.1"
+            "tensorflow==1.4.1"
         ],
         packages=setuptools.find_packages()
 )
