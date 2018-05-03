@@ -17,8 +17,10 @@ tmp_data_provider = H5FileDataProvider(sample_specification)
 # Allocate memory and start sub-process(es)
 tmp_data_provider.start()
 
+tmp_data_generator = tmp_data_provider.first().generate()
+
 for _ in range(10):
-        thing = tmp_data_provider.first().generate().next()
+        thing = tmp_data_generator.next()
 ```
 
 ## Config:
