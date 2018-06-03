@@ -23,15 +23,19 @@ import copy
 import datetime
 import glob
 import logging as lg
-import os
 import shelve
 import shutil
 import uuid
+
+import os
 from abc import ABCMeta
 
-from .abstract_data_catalog import AbstractDataCatalog
+from .abstract import AbstractDataCatalog
 from .utils import timestamp_to_epoch_ms
 
+
+# WARNING - This is dead code will receive no maintenance, feature requests, bug fixes, tests, or documentation.
+# It exists as an example of the DataCatalog Interface and should not be used for anything other than learning.
 
 class BaseDataPoint(object):
     # TODO - wghilliard

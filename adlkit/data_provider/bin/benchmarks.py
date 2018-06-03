@@ -30,7 +30,7 @@ lg.basicConfig(level=lg.INFO)
 
 def generator_output(batch_size=2048, end_count=100, n_readers=20,
                      q_multiplier=3, read_multiplier=1):
-    from adlkit.data_provider.tests.mock_config import mock_sample_specification
+    from adlkit.tests.unit.data_provider import mock_sample_specification
     mock_sample_specification = copy.deepcopy(mock_sample_specification)
     tmp_data_provider = H5FileDataProvider(mock_sample_specification,
                                            batch_size=batch_size,

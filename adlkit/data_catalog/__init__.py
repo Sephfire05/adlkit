@@ -17,12 +17,3 @@ AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE, either express
 or implied.  See the License for the specific language governing permissions and limitations under the License.
 """
-
-from __future__ import absolute_import
-
-from .abstract_data_catalog import AbstractDataCatalog
-from .file_data_catalog import BaseDataPoint, FileDataCatalog, Label
-
-# from .base import FileDataAPI
-# from .core import DataAPI, Label
-# __all__ = ['config', 'base', 'core', 'utils']
