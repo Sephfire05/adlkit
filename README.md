@@ -1,3 +1,6 @@
+# ANNOUNCEMENT - 2018-06-05
+Due to an internal reallocation of resources, we will no longer be able to support this open source version of ADLKit. We apologize for the inconvenience and hope to be able to contribute to the open source community when more resources are available.
+
 **Please read the `LICENSE.txt` before use.**
 
 # ADLKit
